@@ -9,17 +9,20 @@ export default function TextForm(props) {
 const handleTextChange = (event) => {
    console.log("on change");
   setText(event.target.value);
+  
   }; 
-  const handleUpClick=()=>{
+const handleUpClick=()=>{
   console.log("Uppercase Clicked");
   let newText=text.toUpperCase();
   setText(newText);  
+  props.showAlert("Converted to UpperCase","success");
   }
    
 const handleLowClick=()=>{
   console.log("Lower Clicked");
   let newText=text.toLowerCase();
-  setText(newText);  
+  setText(newText); 
+  props.showAlert("Converted to LowerCase","success"); 
   }
 const handleCapitalClick = () => {
   console.log("Capitalize Clicked");
@@ -29,6 +32,7 @@ const handleCapitalClick = () => {
   });
   let newText = capitalizedWords.join(' ');
   setText(newText);
+  props.showAlert("Capitalized the Text","success")
 }
  return(
   <>
